@@ -1,18 +1,11 @@
 {
   "hosting": {
+    "site": "fenix-casino",
     "public": ".",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "headers": [
-      {
-        "source": "**",
-        "headers": [
-          { "key": "X-Robots-Tag", "value": "index, follow, noarchive" }
-        ]
-      }
     ]
   }
 }
